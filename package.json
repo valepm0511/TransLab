@@ -1,0 +1,14 @@
+{
+  "name": "translab",
+  "version": "0.0.1",
+  "description": "mejora trabajo translab",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "translab"
+  ],
+  "author": "Valeria Peñaloza",
+  "license": "ISC"
+}
