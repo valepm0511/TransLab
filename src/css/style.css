@@ -1,0 +1,24 @@
+.containerLogin{
+	background-color: #3E3F41;
+}
+.titleLogin{
+	font-weight: 500;
+	color:#F6A800;
+}
+.inputStyle{
+	border-radius: 0px;
+	height: 50px;
+	background-color: #ffffff !important;
+}
+.iconStyle{
+	font-size: 18px;
+}
+.btnLogin{
+	background-color: #F6A800;
+	border:none;
+	border-radius: 0px;
+	height: 50px;
+}
+.registerLogin a{
+	color: #F6A800;
+}

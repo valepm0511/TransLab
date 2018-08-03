@@ -1,5 +1,5 @@
 window.onload = (bipNumber) =>{
-  fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=123456`)
+  fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=18845336`)
   .then(bip => bip.json())
   .then(bipJSON => {
     console.log(bipJSON);

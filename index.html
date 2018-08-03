@@ -29,12 +29,44 @@
  	</script>
  </head>
  <body>
- 	<h1>HOLA MUNDO</h1>
- 	<!-- <button onclick="bipCard()">ver</button> -->
+ 	<div class="container-fluid containerLogin">
+ 		<div class="row justify-content-center mb-5">
+ 			<div class="col-6 mt-5 mb-3 mx-auto d-block">
+ 				<img src="src/img/logo.png" class="img-fluid">
+ 			</div>
+ 			<p class="display-4 titleLogin mb-5">TRANS-LAB</p>
+ 		</div>
+ 		<div class="row justify-content-center">
+ 			<div class="col-11 ml-2 mr-2">
+ 				<form class="form-inline">
+ 					<div class="input-group">
+ 						<div class="input-group-prepend">
+ 							<div class="input-group-text inputStyle"><i class="fas fa-user iconStyle"></i></div>
+ 						</div>
+ 						<input type="email" class="form-control inputStyle" id="emailUser" placeholder="Correo Electrónico" required>
+ 					</div>
+ 					<div class="input-group">
+ 						<div class="input-group-prepend">
+ 							<div class="input-group-text inputStyle"><i class="fas fa-key"></i></div>
+ 						</div>
+ 						<input type="password" class="form-control inputStyle" id="passwordUser" placeholder="Contraseña" required>
+ 					</div>
+ 					<button type="button" class="btn btn-primary mb-3 col-12 btnLogin" onclick="validateLogin()">INICIAR SESIÓN</button>
+ 				</form>
+ 			</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-12">
+ 				<p class="text-center text-white">¿Olvidaste tu Contraseña?</p>
+ 				<p class="text-center text-white pb-5">¿NO TIENES CUENTA? <span class="registerLogin"><a href="#"><b>REGISTRATE</b></a></span></p>
+ 			</div>
+ 		</div>
+ 	</div>
  	<!-- jquery, popper, bootstrap  -->
  	<script src="node_modules/jquery/dist/jquery.js"></script>
  	<script src="node_modules/popper.js/dist/popper.js"></script>
  	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
  	<script src="src/js/app.js"></script>
+ 	<script src="src/js/validate.js"></script>
  </body>
  </html>
