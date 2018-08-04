@@ -1,14 +1,30 @@
 //conectando a la api de bip
-window.onload = (bipNumber) =>{
+window.getInfoBip = (bipNumber) =>{
 	fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=18845336`)
 	.then(bip => bip.json())
 	.then(bipJSON => {
-		console.log(bipJSON);
+		bipOk(bipJSON);
 	})
 	.catch(error => {
 		console.error("No pudimos obtener respuesta");
 		console.error("ERROR > " + error.stack);
 	});
+}
+
+// recorriendo api bip y mostrando en pantalla
+let containerApiBip = document.getElementById('containerApiBip');
+const bipOk = (bipJSON) => {
+	// console.log(bipJSON);
+	containerApiBip.innerHTML = '';
+	for(let i in bipJSON){
+		console.log(bipJSON[i]);
+		containerApiBip.innerHTML = `
+		<p>numero tarjeta: ${bipJSON['id']}</p>
+		<p>Estado contrato: ${bipJSON['estadoContrato']}</p>
+		<p>Saldo: ${bipJSON['saldoTarjeta']}</p>
+		<p>Fecha de saldo tarjeta: ${bipJSON['fechaSaldo']}</p>
+		`
+	}
 }
 
 //conectando a firestore

@@ -55,11 +55,15 @@
  	<div class="container">
  		<input type="text" id="bipNumber" placeholder="Ingrese numero de Tarjeta" class="form-control my-3">
  		<button type="button" class="btn btn-info" id="btnBip" onclick="window.saveCard()">Agregar tarjeta</button>
+ 		<!-- div en el que se imprimen los numeros de tarjeta -->
+ 		<div id="containerBip">
+ 		</div>
  	</div>
- 	<div id="containerBip">
- 		
+ 	
+ 	<!-- llamando a la api -->
+ 	<div id="containerApiBip">
+ 		<button type="button" class="btn btn-info" id="btnBip" onclick="getInfoBip()">info tarjeta</button>
  	</div>
-
  	<!-- jquery, popper, bootstrap  -->
  	<script src="node_modules/jquery/dist/jquery.js"></script>
  	<script src="node_modules/popper.js/dist/popper.js"></script>
