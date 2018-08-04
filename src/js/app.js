@@ -1,6 +1,10 @@
 //conectando a la api de bip
-window.getInfoBip = (bipNumber) =>{
-	fetch(`http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=18845336`)
+window.getInfoBip = () =>{
+	let bipNumber = document.getElementById('bipNumber').value;
+	document.getElementById('bipNumber').value = '';
+	let urlFetchBip = 'http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip='+bipNumber;
+	console.log("fetch bip "+urlFetchBip);
+	fetch(urlFetchBip)
 	.then(bip => bip.json())
 	.then(bipJSON => {
 		bipOk(bipJSON);
@@ -19,7 +23,7 @@ const bipOk = (bipJSON) => {
 	for(let i in bipJSON){
 		console.log(bipJSON[i]);
 		containerApiBip.innerHTML = `
-		<p>numero tarjeta: ${bipJSON['id']}</p>
+		<p>Numero tarjeta: ${bipJSON['id']}</p>
 		<p>Estado contrato: ${bipJSON['estadoContrato']}</p>
 		<p>Saldo: ${bipJSON['saldoTarjeta']}</p>
 		<p>Fecha de saldo tarjeta: ${bipJSON['fechaSaldo']}</p>
@@ -43,7 +47,6 @@ window.saveCard = () =>{
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
-		document.getElementById('bipNumber').value = '';
 	})
 	.catch(function(error) {
 		console.error("Error adding document: ", error);
