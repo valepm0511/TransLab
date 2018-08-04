@@ -12,24 +12,13 @@
 	crossorigin="anonymous">
 	<!--mis estilos-->
 	<link rel="stylesheet" type="text/css" href="src/css/style.css">
-
-	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-	<script>
- 	 // Initialize Firebase
- 	 // var firebase = require('firebase');
- 	 var config = {
- 	 	apiKey: "AIzaSyBcOCRVlhIyiLBgmBaeblRdW9_Yt0x6ONo",
- 	 	authDomain: "translab-36e8e.firebaseapp.com",
- 	 	databaseURL: "https://translab-36e8e.firebaseio.com",
- 	 	projectId: "translab-36e8e",
- 	 	storageBucket: "translab-36e8e.appspot.com",  
- 	 	messagingSenderId: "1041492029965"
- 	 };
- 	 firebase.initializeApp(config);
- 	</script>
- </head>
- <body>
- 	<div class="container-fluid containerLogin">
+	<!-- firestore -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+	
+</head>
+<body>
+ 	<!-- <div class="container-fluid containerLogin">
  		<div class="row justify-content-center mb-5">
  			<div class="col-6 mt-5 mb-3 mx-auto d-block">
  				<img src="src/img/logo.png" class="img-fluid">
@@ -61,12 +50,22 @@
  				<p class="text-center text-white pb-5">¿NO TIENES CUENTA? <span class="registerLogin"><a href="#"><b>REGISTRATE</b></a></span></p>
  			</div>
  		</div>
+ 	</div> -->
+
+ 	<div class="container">
+ 		<input type="text" id="bipNumber" placeholder="Ingrese numero de Tarjeta" class="form-control my-3">
+ 		<button type="button" class="btn btn-info" id="btnBip" onclick="window.saveCard()">Agregar tarjeta</button>
  	</div>
+ 	<div id="containerBip">
+ 		
+ 	</div>
+
  	<!-- jquery, popper, bootstrap  -->
  	<script src="node_modules/jquery/dist/jquery.js"></script>
  	<script src="node_modules/popper.js/dist/popper.js"></script>
  	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
  	<script src="src/js/app.js"></script>
- 	<script src="src/js/validate.js"></script>
+ 	<!-- <script src="src/js/view.js"></script> -->
+ 	<!-- <script src="src/js/validate.js"></script> -->
  </body>
  </html>
