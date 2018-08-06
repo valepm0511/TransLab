@@ -39,12 +39,11 @@ window.getInfoBip = (tipo) =>{
 if(tipo == 'tarifa'){
 	// alert("holi");
 	let tarifaCalculo = document.getElementById('selectTarifa').value;
-	let tarifaCard = document.getElementById('saldoTarjetaBip');
-	console.log(document.getElementById('saldoTarjetaBip'));
-	tarifaCard = tarifaCard.substring(0,tarifaCard.length)
-	console.log(tarifaCard);
-	tarifaCalculo = parseInt(tarifaCalculo);
+	let tarifaCard = document.getElementById('saldoTarjetaBip').value;
+	tarifaCard = tarifaCard.replace("$","");
+	tarifaCard = tarifaCard.replace(".","");
 	tarifaCard = parseInt(tarifaCard);
+	tarifaCalculo = parseInt(tarifaCalculo);
 	let saldoFinal = tarifaCard - tarifaCalculo;
 	let contSaldoFinal = document.getElementById('contSaldoFinal');
 	contSaldoFinal.innerHTML = saldoFinal;
