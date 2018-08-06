@@ -55,6 +55,7 @@ window.validateLogin = () => {
 	console.log('---',email);
 	console.log('---',password);
 	alert('ingresa');
+	window.view.menu();
 }
 
 // valiando tarjeta bip

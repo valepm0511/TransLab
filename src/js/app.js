@@ -60,11 +60,27 @@ db.collection("cardBip").onSnapshot((querySnapshot) => {
 	querySnapshot.forEach((doc) => {
 		console.log(`${doc.id} => ${doc.data().numberBip}`);
 		containerBip.innerHTML += `
-		<p class="">${doc.data().numberBip}</p>
-		<button onclick="window.deleteCard('${doc.id}')">borrar</button>
+		<div class="row mt-1">
+		<div class="col-12">
+		<p class="bg-white p-1">${doc.data().numberBip}<button type="button" class="btn btn-info btnCard" onclick="window.deleteCard('${doc.id}')"><i class="fas fa-times text-warning"></i></button></p>
+		</div>
+		</div>
 		`
 	});
 });
+
+window.showCard = () =>{
+	let selectCard = document.getElementById('selectCard');
+	db.collection("cardBip").onSnapshot((querySnapshot) => {
+		selectCard.innerHTML = '';
+		querySnapshot.forEach((doc) => {
+			console.log(`${doc.id} => ${doc.data().numberBip}`);
+			selectCard.innerHTML += `
+			<option>${doc.data().numberBip}</option>
+			`
+		});
+	});
+}
 
 //borrando numero de tarjeta
 window.deleteCard = (idCard) => {

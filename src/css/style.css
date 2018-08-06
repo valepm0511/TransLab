@@ -22,3 +22,61 @@
 .registerLogin a{
 	color: #F6A800;
 }
+.navStyle{
+	background-color: #3E3F41;
+	padding: 0;
+}
+.contMenu{
+	background-color: #DDDEE0;
+	height: 100vh;
+	/*height: auto;*/
+}
+
+.btnMenu{
+	background: transparent;
+	border:none;
+	text-align: left;
+	margin-left: 15px;
+	color: #F6A800;
+}
+
+.btnMenuHome{
+	background: #F6A800;
+	color: #ffffff;
+	border-radius: 0;
+	font-size: 18px;
+}
+.avatarPerfil{
+	background: #F6A800;
+}
+.avatarPerfil img{
+	width: 160px;
+}
+.inputNumberCard{
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid #999;
+	border-radius: 0px;
+}
+
+.infoEmail{
+	padding: 10px;
+	background: #fff;
+	text-align: center;
+	color: #666666;
+}
+.btnCard{
+	background: transparent;
+	border: none;
+	float: right;
+	margin-top: -6px;
+}
+
+.titlePF{
+	font-size: 45px;
+}
+.titleAccordeon{
+	text-decoration: none;
+	color: #333333;
+	font-size: 18px;
+}
