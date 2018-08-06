@@ -3,7 +3,7 @@ window.getInfoBip = (tipo) =>{
 	let bipNumber = document.getElementById('selectCard').value;
 
 	//document.getElementById('bipNumber').value = '';
-	let urlFetchBip = 'http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip='+bipNumber;
+	let urlFetchBip = 'https://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip='+bipNumber;
 	console.log("fetch bip "+urlFetchBip);
 	fetch(urlFetchBip)
 	.then(bip => bip.json())
