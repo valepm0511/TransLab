@@ -1,3 +1,29 @@
+*,*:after, *:before{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #DDDEE0;
+}
+
+.closeSesion{
+	color: #F6A800;
+}
+
+#containerPreloader{
+	background-color: #2B2B2B;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	transition: all 1s ease;
+	z-index: 10000;
+}
+.titleIntro{
+	top: 150px;
+	position: relative;
+}
+
 .containerLogin{
 	background-color: #3E3F41;
 }

@@ -15,7 +15,7 @@ window.view.menu = () => {
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.perfil()"><i class="fas fa-user"></i> Perfil</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.question()"><i class="fas fa-align-justify"></i> Preguntas Fracuentes</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.menu()"><i class="fas fa-home"></i> Home</button>
-	<button type="button" class="nav-item nav-link btnMenu" href="#"><i class="far fa-window-close"></i> Cerar Sesión</button>
+	<button type="button" class="nav-item nav-link btnMenu"> <a href="index.html" class="closeSesion"><i class="far fa-window-close"></i> Cerrar Sesión</a></button>
 	</div>
 	</div>
 	</nav>
@@ -48,7 +48,7 @@ window.view.perfil = () =>{
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.perfil()"><i class="fas fa-user"></i> Perfil</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.question()"><i class="fas fa-align-justify"></i> Preguntas Fracuentes</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.menu()"><i class="fas fa-home"></i> Home</button>
-	<button type="button" class="nav-item nav-link btnMenu" href="#"><i class="far fa-window-close"></i> Cerar Sesión</button>
+	<button type="button" class="nav-item nav-link btnMenu"> <a href="index.html" class="closeSesion"><i class="far fa-window-close"></i> Cerrar Sesión</a></button>
 	</div>
 	</div>
 	</nav>
@@ -69,8 +69,13 @@ window.view.perfil = () =>{
 	</div>
 	</div>
 	`;
-	window.saveCard();
+	window.viewProfile();
+	let emailPoner = document.getElementById("emailUserPerfil");
+	let cookieEmail = window.readCookie("emailCK");
+	emailPoner.innerHTML = cookieEmail;
 }
+
+
 
 window.view.question = () => {
 	let contMenu = document.getElementById('contApp');
@@ -88,7 +93,7 @@ window.view.question = () => {
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.perfil()"><i class="fas fa-user"></i> Perfil</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.question()"><i class="fas fa-align-justify"></i> Preguntas Fracuentes</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.menu()"><i class="fas fa-home"></i> Home</button>
-	<button type="button" class="nav-item nav-link btnMenu" href="#"><i class="far fa-window-close"></i> Cerar Sesión</button>
+	<button type="button" class="nav-item nav-link btnMenu"> <a href="index.html" class="closeSesion"><i class="far fa-window-close"></i> Cerrar Sesión</a></button>
 	</div>
 	</div>
 	</nav>
@@ -221,7 +226,7 @@ window.view.saldo = () => {
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.perfil()"><i class="fas fa-user"></i> Perfil</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.question()"><i class="fas fa-align-justify"></i> Preguntas Fracuentes</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.menu()"><i class="fas fa-home"></i> Home</button>
-	<button type="button" class="nav-item nav-link btnMenu" href="#"><i class="far fa-window-close"></i> Cerar Sesión</button>
+	<button type="button" class="nav-item nav-link btnMenu"> <a href="index.html" class="closeSesion"><i class="far fa-window-close"></i> Cerrar Sesión</a></button>
 	</div>
 	</div>
 	</nav>
@@ -257,7 +262,7 @@ window.view.saldo = () => {
 window.view.calcular = () => {
 	let contMenu = document.getElementById('contApp');
 	contMenu.innerHTML = `
-	<div class="container-fluid p-0 contMenu">
+	<div class="container-fluid p-0 contMenu heightPerfil">
 	<nav class="navbar navbar-expand-lg navStyle">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	<i class="fas fa-bars text-white p-2"></i></span>
@@ -270,7 +275,7 @@ window.view.calcular = () => {
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.perfil()"><i class="fas fa-user"></i> Perfil</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.question()"><i class="fas fa-align-justify"></i> Preguntas Fracuentes</button>
 	<button type="button" class="nav-item nav-link btnMenu" onclick="window.view.menu()"><i class="fas fa-home"></i> Home</button>
-	<button type="button" class="nav-item nav-link btnMenu" href="#"><i class="far fa-window-close"></i> Cerar Sesión</button>
+	<button type="button" class="nav-item nav-link btnMenu"> <a href="index.html" class="closeSesion"><i class="far fa-window-close"></i> Cerrar Sesión</a></button>
 	</div>
 	</div>
 	</nav>
@@ -289,7 +294,6 @@ window.view.calcular = () => {
 	<p>Selecciones Tarifa</p>
 	<div class="form-group">
 	<select class="form-control" id="selectTarifa">
-	<option>Tarifas</option>
 	<option value="760">Tarifa Alta: $760</option>
 	<option value="680">Tarifa Media: $680</option>
 	<option value="630">Tarifa Baja: $630</option>
@@ -300,6 +304,8 @@ window.view.calcular = () => {
 	<div class="form-group" id="viewSaldo">
 	<div id="containerApiBip">
 	</div>
+	</div>
+	<div id="contTarifa" class="mb-3">
 	</div>
 	<div id="contSaldoFinal">
 	</div>

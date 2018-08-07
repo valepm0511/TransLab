@@ -1,29 +1,34 @@
 // validando email
-window.validateEmail = (email) => {
-	console.log('entra',email);
-	if(email.indexOf('@') < 0 ){
-		// alert('ingrese un email valido');
+window.validateEmail = (email,password) => {
+	if(email.length > 0 || email == null){
+		if(email.indexOf('@') < 0 ){
+			alert('ingrese un email valido');
+			return false;
+		}
+		const tokens = email.split('@');
+		if(tokens.length != 2){
+			alert('ingrese un email valido');
+			return false;
+		}
+		const domTokens = tokens[1].split('.');
+		if(domTokens.length != 2){
+			alert('ingrese un email valido');
+			return false;
+		}
+		if(domTokens[0].length < 1){
+			alert('ingrese un email valido');
+			return false;
+		}
+		if(domTokens[1].length < 1){
+			alert('ingrese un email valido');
+			return false;
+		}
+		document.cookie = "emailCK="+email;
+		window.validatePassword(password);
+		return true;
+	}else{
 		return false;
 	}
-	const tokens = email.split('@');
-	if(tokens.length != 2){
-		// alert('ingrese un email valido');
-		return false;
-	}
-	const domTokens = tokens[1].split('.');
-	if(domTokens.length != 2){
-		// alert('ingrese un email valido');
-		return false;
-	}
-	if(domTokens[0].length < 1){
-		// alert('ingrese un email valido');
-		return false;
-	}
-	if(domTokens[1].length < 1){
-		// alert('ingrese un email valido');
-		return false;
-	}
-	return true;
 };
 
 //valiando password
@@ -31,17 +36,18 @@ window.validatePassword = (password) => {
 	if(password.toString().length <= 8 && password.toString().length >= 6){
 		if(isNaN(password) == false){
 			if(!password.toString().trim() == " "){
+				window.view.menu();
 				return true;
 			}else{ 
-				// alert('ingrese contraseña valida');
+				alert('ingrese contraseña valida');
 				return false;
 			}
 		}else{
-			// alert('ingrese contraseña valida');
+			alert('ingrese contraseña valida');
 			return false;
 		}
 	}else{
-		// alert('ingrese contraseña valida');
+		alert('ingrese contraseña valida');
 		return false;
 	}
 }
@@ -52,11 +58,10 @@ window.validateLogin = () => {
 	const password = document.getElementById('passwordUser').value;
 	const emailUserPerfil = document.getElementById('emailUserPerfil');
 	console.log(emailUserPerfil);
-	window.validateEmail(email);
-	window.validatePassword(password);
+	window.validateEmail(email,password);
 	console.log('---',email);
 	console.log('---',password);
-	window.view.menu();
+	
 }
 
 // valiando tarjeta bip

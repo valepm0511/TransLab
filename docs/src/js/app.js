@@ -1,3 +1,41 @@
+window.onload = () => {
+	setTimeout(function(){
+		const containerPreloader = document.getElementById('containerPreloader');
+		containerPreloader.style.visibility = 'hidden';
+		containerPreloader.style.opacity = '0';
+	},2000)
+}
+
+window.readCookie = (name) =>{
+	var nameEQ = name + "="; 
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) {
+			return decodeURIComponent( c.substring(nameEQ.length,c.length) );
+		}
+	}
+	return null;
+}
+
+window.numberFormat = (numero) =>{
+	var resultado = "";
+	numero = numero.toString();
+	if(numero.toString().length > 3 && numero.indexOf("-") != 1){
+		for (var j, i = numero.length - 1, j = 0; i >= 0; i--, j++)
+			resultado = numero.charAt(i) + ((j > 0) && (j % 3 == 0)? ".": "") + resultado;
+		if(numero[0]=="-")
+		{
+			return "-"+resultado;
+		}else{
+			return resultado;
+		}
+	}else{
+		return numero;
+	}
+}
+
 //conectando a la api de bip
 window.getInfoBip = (tipo) =>{
 	let bipNumber = document.getElementById('selectCard').value;
@@ -34,21 +72,40 @@ window.getInfoBip = (tipo) =>{
 		</div>
 		`
 	}
+	if(tipo == 'tarifa'){
+		let tarifaCalculo = document.getElementById('selectTarifa').value;
+		let contTarifa = document.getElementById('contTarifa');
+		contTarifa.innerHTML = `<div class="row">
+		<div class="col-12">
+		<p class="bg-dark text-white text-center p-1">Tarifa</p>
+		<div class="contInfoBip">
+		<p class="text-center text-white lead mt-3 mb-3"><b>Valor Tarifa: </b>$`+ tarifaCalculo +`</p>
+		</div>
+		</div>
+		</div>`
+		let tarifaCard = document.getElementById('saldoTarjetaBip').value;
+		tarifaCard = tarifaCard.replace("$","");
+		tarifaCard = tarifaCard.replace(".","");
+		tarifaCard = parseInt(tarifaCard);
+		tarifaCalculo = parseInt(tarifaCalculo);
+		let saldoFinal = tarifaCard - tarifaCalculo;
+		let contSaldoFinal = document.getElementById('contSaldoFinal');
+		saldoFinal = window.numberFormat(saldoFinal);
+		saldoFinal = "$"+saldoFinal;
+		contSaldoFinal.innerHTML = `<div class="row">
+		<div class="col-12">
+		<p class="bg-dark text-white text-center p-1">Saldo Final</p>
+		<div class="contInfoBip">
+		<p class="text-center text-white lead mt-3 mb-3"><b>Saldo Final: </b>`+ saldoFinal +`</p>
+		</div>
+		</div>
+		</div>`;
+
+	}
+
 }
 //calculando tarifa segun horario
-if(tipo == 'tarifa'){
-	// alert("holi");
-	let tarifaCalculo = document.getElementById('selectTarifa').value;
-	let tarifaCard = document.getElementById('saldoTarjetaBip');
-	console.log(document.getElementById('saldoTarjetaBip'));
-	tarifaCard = tarifaCard.substring(0,tarifaCard.length)
-	console.log(tarifaCard);
-	tarifaCalculo = parseInt(tarifaCalculo);
-	tarifaCard = parseInt(tarifaCard);
-	let saldoFinal = tarifaCard - tarifaCalculo;
-	let contSaldoFinal = document.getElementById('contSaldoFinal');
-	contSaldoFinal.innerHTML = saldoFinal;
-}
+
 }
 
 
@@ -91,6 +148,25 @@ window.saveCard = () =>{
 	});
 
 }
+
+window.viewProfile = () =>{
+	let containerBip = document.getElementById('containerBip');
+	db.collection("cardBip").onSnapshot((querySnapshot) => {
+		containerBip.innerHTML = '';
+		querySnapshot.forEach((doc) => {
+			console.log(`${doc.id} => ${doc.data().numberBip}`);
+			containerBip.innerHTML += `
+			<div class="row mt-1">
+			<div class="col-12">
+			<p class="bg-white p-1">${doc.data().numberBip}<button type="button" class="btn btn-info btnCard" onclick="window.deleteCard('${doc.id}')"><i class="fas fa-times text-warning"></i></button></p>
+			</div>
+			</div>
+			`
+		});
+	});
+
+}
+
 //select de ver saldo
 window.showCard = () =>{
 	let selectCard = document.getElementById('selectCard');

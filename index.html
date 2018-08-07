@@ -7,7 +7,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!--bootstrap-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
 	<!--fontAwasome-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
 	crossorigin="anonymous">
@@ -19,7 +18,14 @@
 </head>
 <body>
 
-	
+	<div id="containerPreloader">
+		<div class="row justify-content-center mt-5">
+			<div class="col-6 mt-5 mb-3 mx-auto d-block">
+				<img src="src/img/logo.png" class="img-fluid">
+			</div>
+			<p class="display-4 titleLogin mb-5 pb-5">TRANS-LAB</p>
+		</div>
+	</div>
 	<!-- Inicio login -->
 	<div id="contApp">
 		<div class="container-fluid containerLogin"">
@@ -44,7 +50,7 @@
 							</div>
 							<input type="password" class="form-control inputStyle" id="passwordUser" placeholder="Contraseña" required>
 						</div>
-						<button type="button" class="btn btn-primary mb-3 col-12 btnLogin" onclick="validateLogin()">INICIAR SESIÓN</button>
+						<button type="button" class="btn btn-primary mb-3 col-12 btnLogin" onclick="window.validateLogin()">INICIAR SESIÓN</button>
 					</form>
 				</div>
 			</div>
@@ -64,9 +70,6 @@
  	</div>
  	<button type="button" class="btn btn-info" id="btnBip" onclick="getInfoBip()">info tarjeta</button> -->
  	<!-- jquery, popper, bootstrap  -->
- 	<script src="node_modules/jquery/dist/jquery.js"></script>
- 	<script src="node_modules/popper.js/dist/popper.js"></script>
- 	<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
  	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
