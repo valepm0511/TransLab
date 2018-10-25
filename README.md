@@ -1,9 +1,12 @@
 ![image](https://user-images.githubusercontent.com/38740899/47084026-bee38600-d1e8-11e8-80ab-6a8a715ab765.png)
 
+# TransLab
 
 TransLab es una aplicación mobile para consultar saldo de tarjeta bip y calcular tarifa según el horario.
 
-Proyecto realizado para Laboratoria
+## Desarrollado para 
+
+[Laboratoria](http://laboratoria.la)
 
 ## Tecnología usada
 
